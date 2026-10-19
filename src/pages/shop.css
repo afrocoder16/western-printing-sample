@@ -1,0 +1,63 @@
+/* Shop & upload pages */
+.portal-grid { display: grid; gap: 18px; }
+.portal-card { position: relative; display: flex; flex-direction: column; min-height: 360px; padding: 34px 26px 28px; background: var(--tone); color: var(--on); overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+.portal-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.portal-card::after { content: ''; position: absolute; right: -50px; bottom: -50px; width: 190px; aspect-ratio: 1; border-radius: 50%; border: 28px solid currentColor; opacity: .12; }
+.portal-card__tab { position: absolute; left: 0; top: 0; padding: 7px 14px; background: var(--black); color: var(--white); font: 800 .9rem/1 var(--display); letter-spacing: .14em; text-transform: uppercase; }
+.portal-card__icon { width: 44px; height: 44px; margin: 14px 0 22px; stroke-width: 1.4; }
+.portal-card h2 { margin: 0 0 14px; font-size: 2.8rem; }
+.portal-card p { max-width: 340px; margin-bottom: 26px; color: inherit; font-size: .96rem; }
+.portal-card b { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; border-bottom: 3px solid currentColor; width: fit-content; padding-bottom: 3px; }
+.portal-card b svg { width: 16px; height: 16px; transition: transform .2s ease; }
+.portal-card:hover b svg { transform: translate(3px, -3px); }
+.portal-note { margin: 30px 0 0; font-size: .92rem; }
+.portal-note a { color: var(--ink); font-weight: 800; text-decoration: underline; }
+
+.portal-how { position: relative; overflow: hidden; background: var(--black); color: var(--white); }
+.portal-how .halftone { --tone: var(--y); opacity: .16; }
+.portal-how__grid { position: relative; display: grid; gap: 40px; }
+.portal-how__head h2 { margin: 0; font-size: clamp(2.8rem, 9vw, 5rem); }
+.portal-how__list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.portal-how__list li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,.2); }
+.portal-how__list li:first-child { border-top: 1px solid rgba(255,255,255,.2); }
+.portal-how__list svg { width: 36px; height: 36px; color: var(--y); stroke-width: 1.5; }
+.portal-how__list h3 { margin: 0 0 6px; font-size: 1.9rem; }
+.portal-how__list p { margin: 0; color: rgba(255,255,255,.78); font-size: .95rem; }
+.portal-how__list a { color: var(--y); text-decoration: underline; }
+
+/* Upload page */
+.upload-grid { display: grid; gap: 40px; align-items: start; }
+.upload-card { padding: 26px; background: var(--white); border: 2px solid var(--k); }
+.upload-card h2 { margin: 0 0 10px; font-size: 2.4rem; }
+.upload-form { display: grid; gap: 4px; margin-top: 22px; }
+.upload-form label { display: block; margin-bottom: 14px; font-size: .78rem; font-weight: 800; }
+.upload-form label > span { color: var(--m-ink); }
+.upload-form input:not([type="file"]):not([type="checkbox"]), .upload-form textarea { width: 100%; margin-top: 7px; padding: 12px 13px; color: var(--ink); background: var(--paper); border: 1px solid #b4bbc0; border-radius: 0; }
+.upload-form input:focus, .upload-form textarea:focus { outline: 3px solid var(--c); outline-offset: 0; border-color: var(--k); background: var(--white); }
+.drop { position: relative; display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 36px 18px; border: 3px dashed var(--c); background: rgba(0,174,239,.06); text-align: center; cursor: pointer; transition: background .2s ease, border-color .2s ease; }
+.drop:hover, .drop.is-over { background: rgba(0,174,239,.14); border-color: var(--m); }
+.drop > svg { width: 38px; height: 38px; color: var(--c-ink); }
+.drop strong { font-size: 1rem; }
+.drop small { color: var(--muted); font-size: .76rem; font-weight: 500; }
+.drop input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.file-list { display: grid; gap: 6px; margin: 4px 0 18px; padding: 0; list-style: none; }
+.file-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 12px; background: var(--paper); border-left: 5px solid var(--c); font-size: .84rem; font-weight: 700; }
+.file-list li span { color: var(--muted); font-weight: 500; font-size: .76rem; white-space: nowrap; }
+.file-list button { border: 0; background: transparent; color: var(--m-ink); font-weight: 800; cursor: pointer; }
+.upload-side { display: grid; gap: 18px; }
+.upload-portal { padding: 26px; background: var(--k); color: var(--white); }
+.upload-portal h3 { margin: 0 0 10px; font-size: 2rem; }
+.upload-portal p { color: rgba(255,255,255,.8); font-size: .92rem; }
+.upload-tips { padding: 26px; background: var(--paper); }
+.upload-tips h3 { margin: 0 0 14px; font-size: 1.8rem; }
+.upload-tips ul { display: grid; gap: 10px; margin: 0 0 18px; padding: 0; list-style: none; }
+.upload-tips li { display: flex; gap: 10px; font-size: .9rem; }
+.upload-tips li svg { flex: 0 0 auto; width: 20px; height: 20px; padding: 3px; background: var(--y); color: var(--ink); border-radius: 50%; margin-top: 2px; }
+
+@media (min-width: 900px) {
+  .portal-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .portal-card { min-height: 440px; padding: 44px 32px 32px; }
+  .portal-how__grid { grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: center; }
+  .upload-grid { grid-template-columns: 1.15fr .85fr; gap: 56px; }
+  .upload-card { padding: 38px; }
+}
