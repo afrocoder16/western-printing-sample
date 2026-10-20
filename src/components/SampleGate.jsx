@@ -51,6 +51,7 @@ export default function SampleGate({ children }) {
 
   async function submit(event) {
     event.preventDefault()
+    // Honeypot: a hidden checkbox only a bot would tick. (A hidden text field gets filled by browser autofill, which silently blocked real visitors.)
     if (new FormData(event.currentTarget).get('botcheck')) return
     const record = { name: name.trim(), email: email.trim() }
     setBusy(true)
@@ -96,7 +97,7 @@ export default function SampleGate({ children }) {
                 <span>Your email</span>
                 <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" placeholder="jane@company.com" required />
               </label>
-              <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" className="gate__trap" />
+              <input type="checkbox" name="botcheck" tabIndex={-1} aria-hidden="true" className="gate__trap" />
               {failed && (
                 <p className="gate__error" role="alert">
                   We could not send your request just now. Please try again in 5 minutes.
